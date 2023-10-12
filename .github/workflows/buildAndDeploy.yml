@@ -1,24 +1,21 @@
 name: Build and Deploy
+
 on:
   pull_request:
     branches:
       - main
 
-
-
 jobs:
   buildDeploy:
     runs-on: ubuntu-latest
+    env:
+      DAY_OF_WEEK: 'Monday'
+
     steps:
-        
       - name: Test Varibles
-        env:
-          NETLIFY_SITE_ID : ${{ secrets.NETLIFY_SITE_ID}}
-          NETLIFY_AUTH_TOKEN : ${{secrets.NETLIFY_AUTH_TOKEN}}
-          DAY_OF_WEEK: 'Monday'
         run: |
-          echo "Variable $NETLIFY_SITE_ID"
-          echo "Variable $NETLIFY_AUTH_TOKEN"
+          echo "Variable ${{ secrets.NETLIFY_SITE_ID }}"
+          echo "Variable ${{ secrets.NETLIFY_AUTH_TOKEN }}"
           echo "Variable $DAY_OF_WEEK"
 
       # - name: Checkout code
