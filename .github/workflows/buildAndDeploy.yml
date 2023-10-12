@@ -1,14 +1,11 @@
-name: Demo Eslint
+name: Build an Deploy
 on:
   pull_request:
     branches:
       - main
 jobs:
-  quality:
+  buildDeploy:
     runs-on: ubuntu-latest
-    env:
-      NETLIFY_SITE_ID : ${{secrets.NETLIFY_SITE_ID}}
-      NETLIFY_AUTH_TOKEN : ${{secrets.NETLIFY_AUTH_TOKEN}}
     steps:
 
       - name: Test Varibles
