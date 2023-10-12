@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "prettier --write .",
     "test": "jest",
+    "test:coverage": "jest --collect-coverage",
     "test:watch": "jest --watchAll"
   },
   "dependencies": {
