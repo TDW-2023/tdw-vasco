@@ -1,4 +1,4 @@
-name: Build an Deploy
+name: Build and Deploy
 on:
   pull_request:
     branches:
@@ -7,11 +7,12 @@ jobs:
   buildDeploy:
     runs-on: ubuntu-latest
     steps:
-
+        
       - name: Test Varibles
         run: |
           echo "Variable $NETLIFY_SITE_ID"
           echo "Variable $NETLIFY_AUTH_TOKEN"
+          echo "Variable $OLA"
 
       # - name: Checkout code
       #   uses: actions/checkout@v4
