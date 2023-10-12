@@ -1,11 +1,14 @@
-name: Demo Eslint
+name: Build and Deploy
+
 on:
   pull_request:
     branches:
       - main
+
 jobs:
-  quality:
+  buildDeploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,5 +33,7 @@ jobs:
         run: npm run build
         if: success()
 
+      - name: Deploy
+        run: npx netlify-cli deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --prod
 
-      
+        
