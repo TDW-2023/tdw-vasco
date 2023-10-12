@@ -13,6 +13,7 @@ jobs:
         run: npm ci
 
   quality:
+    needs: install_dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Run Eslint
