@@ -9,10 +9,12 @@ jobs:
     steps:
         
       - name: Test Varibles
+        env:
+          super_secret: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
           echo "Variable $NETLIFY_SITE_ID"
           echo "Variable $NETLIFY_AUTH_TOKEN"
-          echo "Variable $OLA"
+          echo "Variable $super_secret"
 
       # - name: Checkout code
       #   uses: actions/checkout@v4
